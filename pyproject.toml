@@ -1,0 +1,84 @@
+[build-system]
+requires = ["setuptools>=64.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "isaac_quad_sim2real"
+version = "0.1.0"
+keywords = ["reinforcement-learning", "isaac", "drone", "rl-pytorch"]
+maintainers = [
+  { name="Lorenzo Bianchi", email="lorebia@seas.upenn.edu" },
+]
+authors = [
+  { name="Lorenzo Bianchi", email="lorebia@seas.upenn.edu" },
+]
+description = ""
+readme = { file = "README.md", content-type = "text/markdown"}
+license = { text = "BSD-3-Clause" }
+
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/Jirl-upenn/isaac_quad_sim2real"
+Issues = "https://github.com/Jirl-upenn/isaac_quad_sim2real/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["isaac_quad_sim2real*", "third_parties.rsl_rl*", "third_parties.skrl*"]
+
+[tool.setuptools.package-data]
+"isaac_quad_sim2real" = ["config/*"]
+
+[tool.isort]
+
+py_version = 37
+line_length = 120
+group_by_package = true
+
+# Files to skip
+skip_glob = [".vscode/*"]
+
+# Order of imports
+sections = [
+    "FUTURE",
+    "STDLIB",
+    "THIRDPARTY",
+    "FIRSTPARTY",
+    "LOCALFOLDER",
+]
+
+# Extra standard libraries considered as part of python (permissive licenses)
+extra_standard_library = [
+    "numpy",
+    "torch",
+    "tensordict",
+    "warp",
+    "typing_extensions",
+    "git",
+]
+# Imports from this repository
+known_first_party = "isaac_quad_sim2real"
+
+[tool.pyright]
+
+include = ["isaac_quad_sim2real"]
+
+typeCheckingMode = "basic"
+pythonVersion = "3.10"
+pythonPlatform = "Linux"
+enableTypeIgnoreComments = true
+
+# This is required as the CI pre-commit does not download the module (i.e. numpy, torch, prettytable)
+# Therefore, we have to ignore missing imports
+reportMissingImports = "none"
+# This is required to ignore for type checks of modules with stubs missing.
+reportMissingModuleSource = "none" # -> most common: prettytable in mdp managers
+
+reportGeneralTypeIssues = "none"       # -> raises 218 errors (usage of literal MISSING in dataclasses)
+reportOptionalMemberAccess = "warning" # -> raises 8 errors
+reportPrivateUsage = "warning"

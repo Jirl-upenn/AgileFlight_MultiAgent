@@ -1,0 +1,6 @@
+[submodule "src/third_parties/rsl_rl"]
+	path = src/third_parties/rsl_rl
+	url = git@github.com:Jirl-upenn/rsl_rl.git
+[submodule "src/third_parties/rotorpy"]
+	path = src/third_parties/rotorpy
+	url = git@github.com:Jirl-upenn/rotorpy.git
