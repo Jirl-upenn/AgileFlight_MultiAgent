@@ -2,7 +2,7 @@
 
 import argparse
 
-from omni.isaac.lab.app import AppLauncher
+from isaaclab.app import AppLauncher
 
 # add argparse arguments
 parser = argparse.ArgumentParser(description="Example on using the contact sensor.")
@@ -20,16 +20,16 @@ simulation_app = app_launcher.app
 
 import torch
 
-import omni.isaac.lab.sim as sim_utils
-from omni.isaac.lab.assets import AssetBaseCfg, RigidObjectCfg
-from omni.isaac.lab.scene import InteractiveScene, InteractiveSceneCfg
-from omni.isaac.lab.sensors import ContactSensorCfg
-from omni.isaac.lab.utils import configclass
+import isaaclab.sim as sim_utils
+from isaaclab.assets import AssetBaseCfg, RigidObjectCfg
+from isaaclab.scene import InteractiveScene, InteractiveSceneCfg
+from isaaclab.sensors import ContactSensorCfg
+from isaaclab.utils import configclass
 
 ##
 # Pre-defined configs
 ##
-from omni.isaac.lab_assets import ANYMAL_C_CFG  # isort: skip
+from isaaclab_assets import ANYMAL_C_CFG  # isort: skip
 
 
 @configclass

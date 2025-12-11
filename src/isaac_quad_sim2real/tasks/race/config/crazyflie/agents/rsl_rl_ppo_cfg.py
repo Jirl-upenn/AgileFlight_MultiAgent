@@ -5,7 +5,7 @@
 
 from isaaclab.utils import configclass
 
-from .rl_cfg import RslRlOnPolicyRunnerCfg, RslRlPpoActorCriticCfg, RslRlPpoAlgorithmCfg, RslRlPpoActorCriticRecurrentCfg
+from .rl_cfg import RslRlOnPolicyRunnerCfg, RslRlPpoActorCriticCfg, RslRlPpoAlgorithmCfg
 
 
 @configclass
@@ -15,48 +15,13 @@ class QuadcopterPPORunnerCfg(RslRlOnPolicyRunnerCfg):
     save_interval = 50
     experiment_name = "quadcopter_direct"
     empirical_normalization = False
-    wandb_project = "single-agent-sim2real"
-    wandb_entity = "vineetp-university-of-pennsylvania"
-
-    # ego drone: recurrent FiLM architecture
-    # policy = RslRlPpoActorCriticRecurrentCfg(
-    #     class_name="ActorCriticRecurrentFiLM",
-    #     init_noise_std=1.0,
-    #     actor_hidden_dims=[128, 128],
-    #     film_hidden_dims=[3, 3],
-    #     cond_dim=2,
-    #     critic_hidden_dims=[512, 512],
-    #     activation="elu",
-    #     rnn_type="lstm",
-    #     rnn_hidden_size=256,
-    #     rnn_num_layers=2,
-    #     min_std=0.2,
-    # )
-    
-    # ego drone: non-recurrent FiLM architecture (for compatibility with saved checkpoint)
     policy = RslRlPpoActorCriticCfg(
-        class_name="ActorCritic",
         init_noise_std=1.0,
-        actor_hidden_dims=[128, 128],
-        film_hidden_dims=[3, 3],
-        cond_dim=2,
-        critic_hidden_dims=[512, 512],
+        actor_hidden_dims=[512, 512, 256, 128],
+        critic_hidden_dims=[512, 512, 256, 256, 128, 128],
         activation="elu",
-        min_std=0.2,
+        min_std=0.0,
     )
-
-    # adversary drone: non-recurrent FiLM
-    adversary_policy = RslRlPpoActorCriticCfg(
-        class_name="ActorCritic",
-        init_noise_std=1.0,
-        actor_hidden_dims=[128, 128],
-        film_hidden_dims=[3, 3],
-        cond_dim=2,
-        critic_hidden_dims=[512, 512],
-        activation="elu",
-        min_std=0.2,
-    )
-
     algorithm = RslRlPpoAlgorithmCfg(
         value_loss_coef=1.0,
         use_clipped_value_loss=True,

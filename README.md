@@ -1,9 +1,9 @@
 # Agile Flight Emerges from Multi-Agent Competition
 
-![Agile Flight Emerges from Multi-Agent Competition](figure1_photo_crop.png)
+![Agile Flight Emerges from Multi-Agent Competition](AgileFlight_CoverImage.png)
 
-This repository contains the code for training and evaluating Our multi-agent quadcopter racing policy in the paper, Agile Flight Emerges from Multi-Agent Competition.
-In order to train the Dense Single (DS) and Sparse Single (SS) policies, please navigate to the [AgileFlight_SingleAgent branch](https://github.com/Jirl-upenn/isaac_quad_sim2real/tree/AgileFlight_SingleAgent).
+This repository contains the code for training and evaluating the single-agent Dense (DS) and Sparse (SS) quadcopter racing policies in our paper, Agile Flight Emerges from Multi-Agent Competition.
+In order to train Our multi-agent policy, please navigate to the [AgileFlight_MultiAgent branch](https://github.com/Jirl-upenn/isaac_quad_sim2real/tree/AgileFlight_MultiAgent).
 ## Paper and Video
 
 Paper: [arXiV placeholder]
@@ -33,7 +33,7 @@ Video: [Youtube placeholder]
 
 ```bash
 # It is critical that the project repo and the Isaac Lab directory are at the same level
-git clone -b AgileFlight_MultiAgent https://github.com/Jirl-upenn/isaac_quad_sim2real.git
+git clone -b AgileFlight_SingleAgent https://github.com/Jirl-upenn/isaac_quad_sim2real.git
 cd isaac_quad_sim2real
 ```
 
@@ -48,29 +48,29 @@ pip install -e .
 
 ## Training Examples
 
-The main training script uses a modified mappo.py from the [skrl](https://skrl.readthedocs.io/) library.
+The main training script uses the [rsl_rl](https://arxiv.org/abs/2509.10771) library.
 
 ```bash
-# Train Our policy on the Complex Track with walls
-python scripts/skrl/ma_train_race.py \
-    --task Isaac-MA-Quadcopter-Race-v0 \
+# Train Dense Single (DS) policy on the Complex Track
+python scripts/rsl_rl/train_race.py \
+    --task Isaac-Quadcopter-Race-v0 \
     --num_envs 10240 \
-    --algorithm MAPPO \
     --max_iterations 10000 \
     --headless \
-    --use_wall \
-    --track complex
+    --track complex \
+    --reward_type dense
 ```
 
 ```bash
-# Train Our policy on the Lemniscate Track
-python scripts/skrl/ma_train_race.py \
-    --task Isaac-MA-Quadcopter-Race-v0 \
+# Train Sparse Single (SS) policy on the Lemniscate Track with walls
+python scripts/rsl_rl/train_race.py \
+    --task Isaac-Quadcopter-Race-v0 \
     --num_envs 10240 \
-    --algorithm MAPPO \
     --max_iterations 10000 \
     --headless \
-    --track lemniscate
+    --track lemniscate \
+    --use_wall \
+    --reward_type sparse
 ```
 
 ## Evaluation
@@ -78,14 +78,13 @@ python scripts/skrl/ma_train_race.py \
 To evaluate a trained policy:
 
 ```bash
-# Evaluate Our policy on the Complex Track with walls
-python scripts/skrl/ma_play_race.py \
-    --task Isaac-MA-Quadcopter-Race-v0 \
+# Evaluate Our policy on the Complex Track
+python scripts/rsl_rl/play_race.py \
+    --task Isaac-Quadcopter-Race-v0 \
     --num_envs 1 \
-    --algorithm MAPPO \
     --track complex \
-    --use_wall \
-    --checkpoint path/to/checkpoint.pt \
+    --load_run [YYYY-MM-DD_XX-XX-XX] \ # The run directory is in logs/rsl_rl/quadcopter_direct/
+    --checkpoint [best_model.pt] \
     --video \
     --video_length 1000 \
     --headless

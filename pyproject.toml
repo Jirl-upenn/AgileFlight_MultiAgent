@@ -29,7 +29,7 @@ Issues = "https://github.com/Jirl-upenn/isaac_quad_sim2real/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["isaac_quad_sim2real*", "third_parties.rsl_rl*", "third_parties.skrl*"]
+include = ["isaac_quad_sim2real*", "third_parties.rsl_rl*"]
 
 [tool.setuptools.package-data]
 "isaac_quad_sim2real" = ["config/*"]

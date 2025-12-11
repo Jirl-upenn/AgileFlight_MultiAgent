@@ -22,12 +22,6 @@ class RslRlPpoActorCriticCfg:
     actor_hidden_dims: list[int] = MISSING
     """The hidden dimensions of the actor network."""
 
-    film_hidden_dims: list[int] = MISSING
-    """The hidden dimensions of the FiLM network."""
-
-    cond_dim: int = MISSING
-    """The number of conditioning"""
-
     critic_hidden_dims: list[int] = MISSING
     """The hidden dimensions of the critic network."""
 
@@ -36,44 +30,6 @@ class RslRlPpoActorCriticCfg:
 
     min_std: float = MISSING
     """The minimum standard deviation for the policy."""
-
-
-@configclass
-class RslRlPpoActorCriticRecurrentCfg:
-    """Configuration for the recurrent PPO actor-critic networks with FiLM."""
-
-    class_name: str = "ActorCriticRecurrentFiLM"
-    """The policy class name."""
-
-    init_noise_std: float = MISSING
-    """The initial noise standard deviation for the policy."""
-
-    actor_hidden_dims: list[int] = MISSING
-    """The hidden dimensions of the actor network."""
-
-    film_hidden_dims: list[int] = MISSING
-    """The hidden dimensions of the FiLM network."""
-
-    cond_dim: int = MISSING
-    """The number of conditioning variables."""
-
-    critic_hidden_dims: list[int] = MISSING
-    """The hidden dimensions of the critic network."""
-
-    activation: str = MISSING
-    """The activation function for the actor and critic networks."""
-
-    min_std: float = MISSING
-    """The minimum standard deviation for the policy."""
-
-    rnn_type: str = "lstm"
-    """The type of RNN to use (lstm or gru)."""
-
-    rnn_hidden_size: int = MISSING
-    """The hidden size of the RNN."""
-
-    rnn_num_layers: int = MISSING
-    """The number of RNN layers."""
 
 
 @configclass
