@@ -6,7 +6,7 @@ This repository contains the code for training and evaluating the single-agent D
 In order to train Our multi-agent policy, please navigate to the main branch.
 ## Paper and Video
 
-Paper: [PDF](JIRL_Multi_Agent_Drone_Racing_ICRA_2026.pdf)
+Paper: [PDF](AgileFlightEmergesMultiAgentCompetition.pdf)
 
 Video: [Youtube](https://youtu.be/AIUfCbEJX6E)
 
