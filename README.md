@@ -6,7 +6,7 @@ This repository contains the code for training and evaluating Our multi-agent qu
 In order to train the Dense Single (DS) and Sparse Single (SS) policies, please navigate to the [AgileFlight_SingleAgent branch](https://github.com/Jirl-upenn/AgileFlight_MultiAgent/tree/AgileFlight_SingleAgent).
 ## Paper and Video
 
-Paper: [arXiv]
+Paper: [PDF](JIRL_Multi_Agent_Drone_Racing_ICRA_2026.pdf)
 
 Video: [Youtube](https://youtu.be/AIUfCbEJX6E)
 
