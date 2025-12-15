@@ -11,10 +11,14 @@ Paper: [arXiv](https://arxiv.org/abs/2512.11781)
 Video: [Youtube](https://youtu.be/AIUfCbEJX6E)
 
 ```bibtex
-@article{pasumarti2025agileflightemergesmultiagentcompetitiveracing,
-  title={Agile Flight Emerges from Multi-Agent Competitive Racing},
-  author={Pasumarti, Bianchi, Loquercio},
-  year={2025}
+@misc{pasumarti2025agileflightemergesmultiagent,
+      title={Agile Flight Emerges from Multi-Agent Competitive Racing}, 
+      author={Vineet Pasumarti and Lorenzo Bianchi and Antonio Loquercio},
+      year={2025},
+      eprint={2512.11781},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2512.11781}, 
 }
 ```
 
