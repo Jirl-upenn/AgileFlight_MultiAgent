@@ -2,11 +2,11 @@
 
 [![Agile Flight Emerges from Multi-Agent Competitive Racing](AgileFlight_CoverImage.png)](https://youtu.be/AIUfCbEJX6E)
 
-This repository contains the code for training and evaluating Our multi-agent quadcopter racing policy in the paper, [Agile Flight Emerges from Multi-Agent Competitive Racing](AgileFlightEmergesMultiAgentCompetition.pdf).
+This repository contains the code for training and evaluating Our multi-agent quadcopter racing policy in the paper, [Agile Flight Emerges from Multi-Agent Competitive Racing](https://arxiv.org/abs/2512.11781).
 In order to train the Dense Single (DS) and Sparse Single (SS) policies, please navigate to the [AgileFlight_SingleAgent branch](https://github.com/Jirl-upenn/AgileFlight_MultiAgent/tree/AgileFlight_SingleAgent).
 ## Paper and Video
 
-Paper: [PDF](AgileFlightEmergesMultiAgentCompetition.pdf)
+Paper: [arXiv](https://arxiv.org/abs/2512.11781)
 
 Video: [Youtube](https://youtu.be/AIUfCbEJX6E)
 
