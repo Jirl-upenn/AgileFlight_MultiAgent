@@ -37,8 +37,8 @@ Video: [Youtube](https://youtu.be/AIUfCbEJX6E)
 
 ```bash
 # It is critical that the project repo and the Isaac Lab directory are at the same level
-git clone -b AgileFlight_MultiAgent https://github.com/Jirl-upenn/isaac_quad_sim2real.git
-cd isaac_quad_sim2real
+git clone https://github.com/Jirl-upenn/AgileFlight_MultiAgent.git
+cd AgileFlight_MultiAgent
 ```
 
 2. Create and activate your Isaac Lab v2.1.0 conda environment ([Isaac Lab installation guide](https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/index.html))
